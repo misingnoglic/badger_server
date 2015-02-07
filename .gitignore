@@ -113,3 +113,8 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+
+badger_server
+templates
+db.sqlite3
+manage.py
