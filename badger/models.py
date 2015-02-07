@@ -20,6 +20,7 @@ class Location(models.Model):
         return self.name
 
 class Badge(models.Model):
+    name = models.ForeiCharField(max_length=20)
     location = models.ForeignKey(Location)
     description = models.CharField(max_length=200)
     points = models.PositiveSmallIntegerField()
