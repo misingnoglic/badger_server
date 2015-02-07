@@ -1,5 +1,5 @@
 from django.contrib import admin
-from badges.models import Badge,Location,BadgerUser
+from badger.models import Badge,Location,BadgerUser
 
 # Register your models here.
 
