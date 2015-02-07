@@ -16,6 +16,9 @@ class Location(models.Model):
     verified = models.BooleanField()
     votes = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
 class Badge(models.Model):
     location = models.ForeignKey(Location)
     description = models.CharField(max_length=200)
