@@ -25,8 +25,12 @@ class Badge(models.Model):
     points = models.PositiveSmallIntegerField()
     verified = models.BooleanField()
     votes = models.IntegerField()
+    def __str__(self):
+        return self.name
 
 
 class BadgerUser(models.Model):
     user = models.OneToOneField(User)
     badges = models.ManyToManyField(Badge)
+    def __str__(self):
+        return self.user.username
