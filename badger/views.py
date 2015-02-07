@@ -13,7 +13,7 @@ def locations(request):
     return HttpResponse(data, content_type='application/json')
 
 def single_location(request,id):
-    data = serializers.serialize('json', Location.objects.filter(pk=int(id)))
+    data = serializers.serialize('json', Location.objects.get(pk=int(id)))
     return HttpResponse(data, content_type='application/json')
 
 def badges(request):
@@ -21,7 +21,7 @@ def badges(request):
     return HttpResponse(data, content_type='application/json')
 
 def single_badge(request,id):
-    data = serializers.serialize('json', Badge.objects.filter(pk=int(id)))
+    data = serializers.serialize('json', Badge.objects.get(pk=int(id)))
     return HttpResponse(data, content_type='application/json')
 
 def scantron(request,name):
