@@ -12,6 +12,10 @@ def locations(request):
     data = serializers.serialize('json', Location.objects.all())
     return HttpResponse(data, content_type='application/json')
 
+def single_location(request,id):
+    data = serializers.serialize('json', Location.objects.get(pk=id))
+    return HttpResponse(data, content_type='application/json')
+
 def badges(request):
     data = serializers.serialize('json', Badge.objects.all())
     return HttpResponse(data, content_type='application/json')
