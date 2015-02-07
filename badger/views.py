@@ -13,6 +13,7 @@ def locations(request):
     return HttpResponse(data, content_type='application/json')
 
 def single_location(request,id):
+    print "Poop"
     data = serializers.serialize('json', Location.objects.filter(pk=int(id)))
     return HttpResponse(data, content_type='application/json')
 
