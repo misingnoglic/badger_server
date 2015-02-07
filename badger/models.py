@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 class Location(models.Model):
     house_number = models.PositiveSmallIntegerField()
-    street = models.CharField(max_length = 30)
+    street = models.CharField(max_length = 70)
     city = models.CharField(max_length = 30)
     name = models.CharField(max_length = 30)
     rating = models.PositiveSmallIntegerField()
@@ -20,12 +20,13 @@ class Location(models.Model):
         return self.name
 
 class Badge(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=100)
     location = models.ForeignKey(Location)
     description = models.CharField(max_length=200)
     points = models.PositiveSmallIntegerField()
     verified = models.BooleanField()
     votes = models.IntegerField()
+    image = models.URLField(null=True)
     def __str__(self):
         return self.name
 
