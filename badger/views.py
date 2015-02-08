@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse
 import json
 from django.core import serializers
-from models import Location, Badge
+from models import Location, Badge, Category
 # Create your views here.
 
 def index(request):
@@ -23,6 +23,14 @@ def badges(request):
 
 def single_badge(request,id):
     data = serializers.serialize('json', Badge.objects.filter(pk=int(id)))
+    return HttpResponse(data, content_type='application/json')
+
+def badges(request):
+    data = serializers.serialize('json', Category.objects.all())
+    return HttpResponse(data, content_type='application/json')
+
+def single_badge(request,id):
+    data = serializers.serialize('json', Category.objects.filter(pk=int(id)))
     return HttpResponse(data, content_type='application/json')
 
 def scantron(request,name):

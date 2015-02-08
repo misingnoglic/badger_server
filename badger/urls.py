@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     url(r'locations/$',views.locations,name="locations"),
     url(r'badges/(?P<id>\d+)/$',views.single_badge,name="single_badge"),
     url(r'badges/$',views.badges,name="badges"),
+    url(r'categories/(?P<id>\d+)/$',views.single_category,name="single_category"),
+    url(r'categories/$',views.categories,name="categories"),
 )
