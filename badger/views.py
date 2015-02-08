@@ -25,11 +25,11 @@ def single_badge(request,id):
     data = serializers.serialize('json', Badge.objects.filter(pk=int(id)))
     return HttpResponse(data, content_type='application/json')
 
-def badges(request):
+def categories(request):
     data = serializers.serialize('json', Category.objects.all())
     return HttpResponse(data, content_type='application/json')
 
-def single_badge(request,id):
+def single_category(request,id):
     data = serializers.serialize('json', Category.objects.filter(pk=int(id)))
     return HttpResponse(data, content_type='application/json')
 
