@@ -13,8 +13,11 @@ def locations(request):
     return HttpResponse(data, content_type='application/json')
 
 def single_location(request,id):
-    print "Poop"
     data = serializers.serialize('json', Location.objects.filter(pk=int(id)))
+    return HttpResponse(data, content_type='application/json')
+
+def category_location(request,type):
+    data = serializers.serialize('json', Location.objects.filter(category__name=type))
     return HttpResponse(data, content_type='application/json')
 
 def badges(request):
@@ -23,6 +26,14 @@ def badges(request):
 
 def single_badge(request,id):
     data = serializers.serialize('json', Badge.objects.filter(pk=int(id)))
+    return HttpResponse(data, content_type='application/json')
+
+def category_badge(request,type):
+    data = serializers.serialize('json', Badge.objects.filter(category__name=type))
+    return HttpResponse(data, content_type='application/json')
+
+def location_badge(request,location):
+    data = serializers.serialize('json', Badge.objects.filter(location__name=type))
     return HttpResponse(data, content_type='application/json')
 
 def categories(request):
