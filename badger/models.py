@@ -14,7 +14,7 @@ class Location(models.Model):
     verified = models.BooleanField()
     votes = models.IntegerField()
     image = models.URLField(blank=True, null=True)
-    category = models.ForeignKey(Category, default=None, null=True)
+    #category = models.ForeignKey(Category, default=None, null=True)
 
     def __str__(self):
         return self.name
@@ -27,7 +27,7 @@ class Badge(models.Model):
     verified = models.BooleanField()
     votes = models.IntegerField()
     image = models.URLField(blank=True, null=True)
-    category = models.ForeignKey(Category,default=None, null=True)
+    #category = models.ForeignKey(Category,default=None, null=True)
     def __str__(self):
         return self.name
 
