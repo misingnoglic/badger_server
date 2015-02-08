@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
 class Location(models.Model):
     house_number = models.PositiveSmallIntegerField()
     street = models.CharField(max_length = 70)
@@ -11,7 +14,7 @@ class Location(models.Model):
     verified = models.BooleanField()
     votes = models.IntegerField()
     image = models.URLField(blank=True, null=True)
-    category = models.ForeignKey('Category')
+    category = models.ForeignKey(Category, default=None, null=True)
 
     def __str__(self):
         return self.name
@@ -24,7 +27,7 @@ class Badge(models.Model):
     verified = models.BooleanField()
     votes = models.IntegerField()
     image = models.URLField(blank=True, null=True)
-    category = models.ForeignKey('Category')
+    category = models.ForeignKey(Category,default=None, null=True)
     def __str__(self):
         return self.name
 
@@ -36,5 +39,3 @@ class BadgerUser(models.Model):
     def __str__(self):
         return self.user.username
 
-class Category(models.Model):
-    name = models.CharField(max_length=50)
